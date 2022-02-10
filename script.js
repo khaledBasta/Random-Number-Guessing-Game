@@ -2,8 +2,10 @@
 
 const output = document.querySelector("p");
 const myInput = document.querySelector("input");
-const btn = document.querySelector("button");
+const btn = document.querySelector(".click");
+const reset = document.querySelector(".reset");
 const answer = document.querySelector(".answer");
+
 let lowValue = 0;
 let highValue = 0;
 let hiddenNumber = 0;
@@ -34,9 +36,11 @@ const initiateGame = function () {
   myInput.setAttribute("max", highValue);
   btn.textContent = "Enter Guess";
   answer.textContent = "";
+  myInput.value = "";
   console.log(hiddenNumber);
 };
 
 initiateGame();
 
 btn.addEventListener("click", check);
+reset.addEventListener("click", initiateGame);
