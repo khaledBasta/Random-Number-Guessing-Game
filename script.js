@@ -3,16 +3,25 @@
 const output = document.querySelector("p");
 const myInput = document.querySelector("input");
 const btn = document.querySelector("button");
+const answer = document.querySelector(".answer");
 let lowValue = 0;
 let highValue = 0;
-let hiddenNumber;
+let hiddenNumber = 0;
+
 const getRan = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 const check = function () {
-  let randomNumber = getRan(1, 5);
-  console.log(randomNumber);
+  const inputValue = myInput.value;
+  let message = "";
+  answer.textContent = "";
+  if (Number(inputValue) === hiddenNumber) {
+    message = "Correct";
+  } else {
+    message = inputValue < hiddenNumber ? "Go Higher" : "Go Lower";
+  }
+  answer.textContent = message;
 };
 
 const initiateGame = function () {
@@ -24,7 +33,8 @@ const initiateGame = function () {
   myInput.setAttribute("min", lowValue);
   myInput.setAttribute("max", highValue);
   btn.textContent = "Enter Guess";
-  console.log(lowValue, highValue, hiddenNumber);
+  answer.textContent = "";
+  console.log(hiddenNumber);
 };
 
 initiateGame();
