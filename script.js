@@ -19,7 +19,7 @@ const check = function () {
   let message = "";
   answer.textContent = "";
   if (Number(inputValue) === hiddenNumber) {
-    message = "Correct";
+    message = `Correct it was ${hiddenNumber}`;
   } else {
     message = inputValue < hiddenNumber ? "Go Higher" : "Go Lower";
   }
