@@ -20,8 +20,17 @@ const check = function () {
   answer.textContent = "";
   if (Number(inputValue) === hiddenNumber) {
     message = `Correct it was ${hiddenNumber}`;
+    initiateGame();
   } else {
-    message = inputValue < hiddenNumber ? "Go Higher" : "Go Lower";
+    // message = inputValue < hiddenNumber ? "Go Higher" : "Go Lower";
+    if (inputValue < hiddenNumber) {
+      message = `${inputValue} was wrong Go Higher!`;
+      lowValue = inputValue;
+    } else {
+      message = `${inputValue} was wrong Go Lower`;
+      highValue = inputValue;
+    }
+    output.textContent = `Guess Again between ${lowValue} and ${highValue}`;
   }
   answer.textContent = message;
 };
